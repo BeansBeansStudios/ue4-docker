@@ -51,3 +51,6 @@ RUN ue4 conan generate --profile-only
 
 # Install CMake and add it to the system PATH
 RUN choco install --no-progress -y cmake --installargs "ADD_CMAKE_TO_PATH=System"
+
+# Install Perforce
+RUN choco install --no-progress -y p4v --version=2023.3.0

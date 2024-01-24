@@ -59,3 +59,8 @@ RUN ue4 version
 #RUN apt-get install -y --no-install-recommends pulseaudio-utils
 #COPY pulseaudio-client.conf /etc/pulse/client.conf
 #USER ue4
+
+# Install Perforce
+RUN curl -fsSL https://package.perforce.com/perforce.pubkey | sudo gpg --dearmor -o /usr/share/keyrings/perforce.gpg
+RUN echo 'deb [signed-by=/usr/share/keyrings/perforce.gpg] https://package.perforce.com/apt/ubuntu   jammy release' | sudo tee /etc/apt/sources.list.d/perforce.list
+RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends helix-cli=2023.2-2535420~jammy
